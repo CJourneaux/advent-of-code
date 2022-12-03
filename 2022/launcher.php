@@ -4,11 +4,11 @@
 
 // Define options
 $longopts  = array(
-    "day:",     // Required value
-    "challenge::",   // Optpnal value   
-    "test",     // No value
+    "day:",         // Required value
+    "challenge:",  // Optional value   
+    "test",         // No value
 );
-$shortopts  = "d:c::t";
+$shortopts  = "d:c:t";
 
 
 // Read parameters from the command line and validate them
@@ -27,9 +27,11 @@ $challenge = $options['challenge'] ?? $options['c'] ?? null;
 
 // Launch the appropriate puzzle solver
 include "solutions/day$day.php";
-$solver= "Day$day";
-$function = $challenge == 'two' ? 'secondChallenge' :'firstChallenge';
-$inputFile = $testMode ? "day-$day-test.txt" : "day-$day-part-1.txt" ;
+$solver = "Day$day";
+$function = $challenge == 'two' ? 'secondChallenge' : 'firstChallenge';
+$inputFileName = $testMode ? "day-$day-test" : "day-$day";
+$inputFile = new SplFileObject("inputs/$inputFileName.txt", "r");
+$inputFile->setFlags(SplFileObject::DROP_NEW_LINE);
 
 $result = ($solver::$function($inputFile));
 
