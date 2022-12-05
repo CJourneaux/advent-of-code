@@ -29,7 +29,7 @@ $challenge = $options['challenge'] ?? $options['c'] ?? null;
 include "solutions/day$day.php";
 $solver = "Day$day";
 $function = $challenge == 'two' ? 'secondChallenge' : 'firstChallenge';
-$inputFileName = $testMode ? "day-$day-test" : "day-$day";
+$inputFileName = $testMode ? "day-$day-test" : "day-$day-data";
 $inputFile = new SplFileObject("inputs/$inputFileName.txt", "r");
 $inputFile->setFlags(SplFileObject::DROP_NEW_LINE);
 
