@@ -1,6 +1,6 @@
 <?php
 
-class Day02
+class Day02 implements Day
 {
     const VALUES = [
         "rock" => 1,

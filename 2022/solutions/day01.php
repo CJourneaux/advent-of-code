@@ -1,6 +1,6 @@
 <?php
 
-class Day01
+class Day01 implements Day
 {
 
     public static function firstChallenge($inputFile)
