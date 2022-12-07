@@ -5,7 +5,8 @@ class Day01 implements Day
 
     public static function firstChallenge($inputFile)
     {
-        echo "Solving the first challenge\n";
+        $fileName = $inputFile->getBaseName('.txt');
+        echo "Solving the first challenge : $fileName\n";
 
         $mostCaloriesCount = 0;
         $currentElfCount = 0;
@@ -31,7 +32,8 @@ class Day01 implements Day
 
     public static function secondChallenge($inputFile)
     {
-        echo "Solving the second challenge\n";
+        $fileName = $inputFile->getBaseName('.txt');
+        echo "Solving the second challenge : $fileName\n";
 
         $mostCaloriesCount = [0, 0, 0];
         $currentElfCount = 0;

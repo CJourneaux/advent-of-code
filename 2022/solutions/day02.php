@@ -31,7 +31,8 @@ class Day02 implements Day
      */
     public static function firstChallenge($inputFile)
     {
-        echo "Solving the first challenge :\n";
+        $fileName = $inputFile->getBaseName('.txt');
+        echo "Solving the first challenge : $fileName\n";
 
         $POINTS = [
             "A" => self::VALUES['rock'],
@@ -96,7 +97,8 @@ class Day02 implements Day
      */
     public static function secondChallenge($inputFile)
     {
-        echo "Solving the second challenge :\n";
+        $fileName = $inputFile->getBaseName('.txt');
+        echo "Solving the second challenge : $fileName\n";
 
         $getResultsPoints = function ($playerA, $roundResult) {
             $WIN_POINTS = [
