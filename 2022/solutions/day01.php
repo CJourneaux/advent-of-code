@@ -1,5 +1,7 @@
 <?php
 
+require 'Day.php';
+
 class Day01 implements Day
 {
 

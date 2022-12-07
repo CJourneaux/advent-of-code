@@ -1,7 +1,8 @@
 <?php
 
+require 'Day.php';
 
-class Day07
+class Day07 implements Day
 {
     // - / (dir)
     //   - a (dir)

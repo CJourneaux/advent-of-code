@@ -1,5 +1,7 @@
 <?php
 
+require 'Day.php';
+
 class Day02 implements Day
 {
     const VALUES = [

@@ -1,5 +1,7 @@
 <?php
 
+require 'Day.php';
+
 class Day05 implements Day
 {
     public static function firstChallenge($inputFile)
