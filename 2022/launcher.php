@@ -5,10 +5,11 @@
 // Define options
 $longopts  = array(
     "day:",         // Required value
-    "challenge:",  // Optional value   
+    "challenge:",   // Optional value   
     "test",         // No value
+    "init",         // No value
 );
-$shortopts  = "d:c:t";
+$shortopts  = "d:c:ti";
 
 
 // Read parameters from the command line and validate them
@@ -24,6 +25,23 @@ if (!isset($rawDay)) {
 $day = sprintf('%02d', (int)$rawDay);
 
 $challenge = $options['challenge'] ?? $options['c'] ?? null;
+
+// Set-up files for working on a challenge
+$initMode = isset($options['init']) || isset($options['i']);
+if ($initMode) {
+    $solverFileName = "solutions/day$day.php";
+    if (!file_exists($solverFileName)) {
+        touch("inputs/day-$day-data.txt");
+        touch("inputs/day-$day-test.txt");
+        copy("solutions/day00.php", $solverFileName);
+        echo "Successfully created input and solver files\n";
+        echo "==== Don't forget to change the class name ! ====\n";
+        exit(0);
+    } else {
+        echo "There's already some files set-up for the challenge of day $day !\n";
+        exit(1);
+    }
+}
 
 // Launch the appropriate puzzle solver
 include "solutions/day$day.php";
